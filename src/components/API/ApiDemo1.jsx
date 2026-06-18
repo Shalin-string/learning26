@@ -1,39 +1,43 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Loader } from '../Loader'
 
 export const ApiDemo1 = () => {
-    const [data, setdata] = useState([])
-    const getusers = async() => {
+const [message, setmessage] = useState("")
+const [users, setusers] = useState([])
+const [isLoading, setisLoading] = useState(false)
+    const getUsers = async()=>{
+        
+        setisLoading(true)    
         const res = await axios.get("https://node5.onrender.com/user/user/")
+        console.log(res) //axios object
+        //axios object -->5 param -->data variable -->api response
         console.log(res.data)
-        setdata(res.data.data)
+        console.log(res.data.message)//""
+        console.log(res.data.data) //[]
+        setmessage(res.data.message)
+        setusers(res.data.data) //-->fix
+        setisLoading(false)    
+
     }
+    
+    useEffect(()=>{
+        getUsers()
+    },[])
   return (
     <div style={{textAlign:"center"}}>
         <h1>ApiDemo1</h1>
-        <button onClick={getusers}>GET</button>
-        <table class = "table table-dark">
-            <thead>
-                <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>IsActive</th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((user) => (
-                <tr>
-                    <td>{user._id}</td>
-                    <td>{user.name}</td>
-                    <td>{user.age}</td>
-                    <td>{user.isActive ? "Active" : "Not Active"}</td>
-                    <td>{user.email}</td>
-                </tr>
-            ))}
-            </tbody>
-        </table>
+        {
+            isLoading && <Loader/>
+        }
+        {message}
+        {/* <button onClick={getUsers}>GET</button> */}
+        {
+        users.map((u)=>{
+            return <li>{u.name}</li>
+        })
+        
+        }
     </div>
   )
 }

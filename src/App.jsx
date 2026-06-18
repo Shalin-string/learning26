@@ -34,6 +34,7 @@ import { ApiDemo1 } from './components/API/ApiDemo1'
 import { ApiDemo2 } from './components/API/ApiDemo2'
 import { ApiDemo22 } from './components/API/ApiDemo22'
 import { OmdbSearch } from './components/API/OmdbSearch'
+import { ToastContainer } from 'react-toastify'
 // import { Inputdemo1 } from './components/Inputdemo1'
 // import { PracticeComponents } from './components/PracticeComponents'
 
