@@ -156,6 +156,15 @@ export const NetflixNevbar = () => {
                 OmdbSearch
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                to="/ApiDemo3"
+                className="nav-link"
+                style={({ isActive }) => ({ color: isActive ? '#4da6ff' : 'white' })}
+              >
+                ApiDemo3
+              </NavLink>
+            </li>
           </ul>
         </div>
       </nav>
