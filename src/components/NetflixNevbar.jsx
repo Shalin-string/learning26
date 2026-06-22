@@ -165,6 +165,15 @@ export const NetflixNevbar = () => {
                 ApiDemo3
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                to="/Login"
+                className="nav-link"
+                style={({ isActive }) => ({ color: isActive ? '#4da6ff' : 'white' })}
+              >
+                Login
+              </NavLink>
+            </li>
           </ul>
         </div>
       </nav>
