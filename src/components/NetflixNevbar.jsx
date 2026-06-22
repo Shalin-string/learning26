@@ -1,7 +1,13 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export const NetflixNevbar = () => {
+  const navigate = useNavigate()
+  const logouthandler =()=>{
+    localStorage.clear()
+    alert("logout")
+    navigate("/login")
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -174,6 +180,12 @@ export const NetflixNevbar = () => {
                 Login
               </NavLink>
             </li>
+            <li className="nav-item">
+              <button onClick={logouthandler} className="nav-link">
+                Logout
+              </button>
+            </li>
+
           </ul>
         </div>
       </nav>
