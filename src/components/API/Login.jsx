@@ -7,7 +7,8 @@ export const Login = () => {
     const loginHandler = async(data)=>{
         const res = await axios.post("https://node5.onrender.com/user/login",data)
         
-        console.log(res)
+        console.log(res.data.data)
+        localStorage.setItem("token",res.data.data)
 
     }
   return (
