@@ -1,10 +1,12 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { ItemComponent } from './API/ItemComponent'
 
 export const NetflixNevbar = () => {
   const navigate = useNavigate()
   const logouthandler =()=>{
     localStorage.clear()
+    document.cookie = "token=; max-age=0; path=/;";
     alert("logout")
     navigate("/login")
   }
@@ -99,7 +101,7 @@ export const NetflixNevbar = () => {
                 formDemo2
               </NavLink>
             </li> */}
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink
                 to="/FormDemo4"
                 className="nav-link"
@@ -134,7 +136,7 @@ export const NetflixNevbar = () => {
               >
                 APIDEMO1
               </NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink
                 to="/ApiDemo2"
@@ -184,6 +186,15 @@ export const NetflixNevbar = () => {
               <button onClick={logouthandler} className="nav-link">
                 Logout
               </button>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/ItemComponent"
+                className="nav-link"
+                style={({ isActive }) => ({ color: isActive ? '#4da6ff' : 'white' })}
+              >
+                ItemComponent
+              </NavLink>
             </li>
 
           </ul>

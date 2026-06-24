@@ -37,6 +37,7 @@ import { OmdbSearch } from './components/API/OmdbSearch'
 import { ToastContainer } from 'react-toastify'
 import { ApiDemo3 } from './components/API/ApiDemo3'
 import { Login } from './components/API/Login'
+import { ItemComponent } from './components/API/ItemComponent'
 // import { Inputdemo1 } from './components/Inputdemo1'
 // import { PracticeComponents } from './components/PracticeComponents'
 
@@ -72,6 +73,7 @@ function App() {
         <Route path='/ApiDemo22' element = {<ApiDemo22/>}></Route>
         <Route path='/omdbSearch' element = {<OmdbSearch/>}></Route>
         <Route path='/Login' element = {<Login/>}></Route>
+        <Route path='/ItemComponent' element = {<ItemComponent/>}></Route>
 
 
       </Routes>

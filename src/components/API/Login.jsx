@@ -9,7 +9,7 @@ export const Login = () => {
         
         console.log(res.data.data)
         localStorage.setItem("token",res.data.data)
-
+        document.cookie = `token=${res.data.data}; path=/`;
     }
   return (
     <div style={{textAlign:"center"}}>
