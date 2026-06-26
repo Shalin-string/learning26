@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Loader } from "../Loader";
 import { toast } from "react-toastify";
 import { Modal } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export const ApiDemo1 = () => {
   const [message, setmessage] = useState("");
@@ -14,7 +15,7 @@ export const ApiDemo1 = () => {
   const getUserDetail =async(id)=>{
     //api...
     const res = await axios.get(`https://node5.onrender.com/user/user/${id}`)
-    console.log("res..",res)
+    // console.log("res..",res)
     //res.data --->api response
     //res.data.data -->object ..
     setsingleUser(res.data.data)
@@ -27,11 +28,11 @@ export const ApiDemo1 = () => {
   const getUsers = async () => {
     setisLoading(true);
     const res = await axios.get("https://node5.onrender.com/user/user/");
-    console.log(res); //axios object
+    // console.log(res); //axios object
     //axios object -->5 param -->data variable -->api response
-    console.log(res.data);
-    console.log(res.data.message); //""
-    console.log(res.data.data); //[]
+    // console.log(res.data);
+    // console.log(res.data.message); //""
+    // console.log(res.data.data); //[]
     setmessage(res.data.message);
     setusers(res.data.data); //-->fix
     setisLoading(false);
@@ -89,6 +90,9 @@ export const ApiDemo1 = () => {
                   <button className="btn btn-primary" onClick={()=>{getUserDetail(m._id)}}>
                     DETAIL
                   </button>
+                  <Link style={{marginLeft:"10px"}}  to={`/UpdateUser/${m._id}`} className="btn btn-warning">
+                    UPDATE
+                  </Link>
                 </td>
               </tr>
             );

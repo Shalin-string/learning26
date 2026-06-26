@@ -127,7 +127,7 @@ export const NetflixNevbar = () => {
               >
                 BombGame
               </NavLink>
-            </li>
+            </li>*/}
             <li className="nav-item">
               <NavLink
                 to="/ApiDemo1"
@@ -136,7 +136,7 @@ export const NetflixNevbar = () => {
               >
                 APIDEMO1
               </NavLink>
-            </li> */}
+            </li> 
             <li className="nav-item">
               <NavLink
                 to="/ApiDemo2"
