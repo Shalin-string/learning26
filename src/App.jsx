@@ -39,6 +39,7 @@ import { ApiDemo3 } from './components/API/ApiDemo3'
 import { Login } from './components/API/Login'
 import { ItemComponent } from './components/API/ItemComponent'
 import { UpdateUser } from './components/API/UpdateUser'
+import { AddProducts } from './components/API/AddProducts'
 // import { Inputdemo1 } from './components/Inputdemo1'
 // import { PracticeComponents } from './components/PracticeComponents'
 
@@ -76,6 +77,7 @@ function App() {
         <Route path='/Login' element = {<Login/>}></Route>
         <Route path='/ItemComponent' element = {<ItemComponent/>}></Route>
         <Route path='/UpdateUser/:id' element = {<UpdateUser/>}></Route>
+        <Route path='/AddProducts' element = {<AddProducts/>}></Route>
 
 
       </Routes>

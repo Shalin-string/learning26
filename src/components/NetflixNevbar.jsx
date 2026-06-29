@@ -196,6 +196,15 @@ export const NetflixNevbar = () => {
                 ItemComponent
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                to="/addProducts"
+                className="nav-link"
+                style={({ isActive }) => ({ color: isActive ? '#4da6ff' : 'white' })}
+              >
+                AddProducts
+              </NavLink>
+            </li>
 
           </ul>
         </div>
