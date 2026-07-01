@@ -3,13 +3,12 @@ import React from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 
 export const AddProducts = () => {
-    const{register,handleSubmit,control}=useForm({defaultValues:{pros:[{name:"",price:0,description:"",colors:[],size:"m",isAvailable:false,unit:0}]}})
+    const{register,handleSubmit,control}=useForm({defaultValues:{products:[{name:"",price:0,description:"",colors:[],size:[],isAvailable:false,unit:0}]}})
     
-        const {append,remove,fields}=useFieldArray({control,name:"pros"})
+        const {append,remove,fields}=useFieldArray({control,name:"products"})
     
         const submitHandler = async (data) => {
-    const res = await axios.post(
-        "https://node5.onrender.com/product/addproducts",data.pros);
+    const res = await axios.post("https://node5.onrender.com/product/addproducts", data.products);
     console.log(res.data);
 }
         
@@ -21,53 +20,48 @@ export const AddProducts = () => {
         <form onSubmit={handleSubmit(submitHandler)}>
             {
                 fields.map((f,index)=>{
-                    return (<div key={f.id}>
+                    return <div>
                         <div>
-                            <label>NAME</label>
-                            <input type='text' {...register(`pros.${index}.name`)}></input>
+                            <label style={{fontWeight:"bold"}}>NAME</label>
+                            <input type='text' {...register(`products.${index}.name`)}></input>
                         </div>
                         <div>
-                            <label>Price</label>
-                            <input type='number' {...register(`pros.${index}.price`)}></input>
+                            <label style={{fontWeight:"bold"}}>Price</label>
+                            <input type='number' {...register(`products.${index}.price`)}></input>
                         </div>
                         <div>
-                            <label>Description</label>
-                            <input type='text' {...register(`pros.${index}.description`)}></input>
+                            <label style={{fontWeight:"bold"}}>Description</label>
+                            <input type='text' {...register(`products.${index}.description`)}></input>
                         </div>
                         <div>
-                            <label>Colors</label> 
-                           <input
-                            type="checkbox" value="Red" {...register(`pros.${index}.colors`)}/> Red <br></br>
+                            <label style={{fontWeight:"bold"}}>Colors</label> <br /> 
+                           <input type="checkbox" value="Red" {...register(`products.${index}.colors`)}/> Red <br></br>
+                           <input type="checkbox" value="Green" {...register(`products.${index}.colors`)}/> Green  <br></br>
+                           <input type="checkbox" value="Blue" {...register(`products.${index}.colors`)}/> Blue  <br></br>
 
-                        <input type="checkbox" value="Green" {...register(`pros.${index}.colors`)}/> Green  <br></br>
-
-                        <input
-                            type="checkbox"
-                            value="Blue"
-                            {...register(`pros.${index}.colors`)}
-                        /> Blue
+                        
                         </div>
                         <div>
                             <label>size</label>
-                            <input type='text' {...register(`pros.${index}.size`)}></input>
+                            <input type='text' {...register(`products.${index}.size`)}></input>
                         </div>
                         <div>
-                            <label>isAvaliable</label>  
-                            <input type='checkbox' {...register(`pros.${index}.isAvailable`)}></input>
+                            <label style={{fontWeight:"bold"}}>isAvaliable</label>   <br />
+                            <input type='checkbox' {...register(`products.${index}.isAvailable`)}></input>
                         </div>
                         <div>
-                            <label>Unit</label>
-                            <input type='number' {...register(`pros.${index}.unit`)}></input>
+                            <label style={{fontWeight:"bold"}}>Unit</label>
+                            <input type='number' {...register(`products.${index}.unit`)}></input>
                         </div>
                     </div>
-                )})
+                })
             }
             <div>
                 
                 <input type='submit'></input>
             </div>
         </form> 
-        <button type="button" onClick={() => append({ name: "", price: 0, description: "", colors: [], size: "m", isAvailable: false, unit: 0 })}>Append</button>
+        <button type="button" onClick={() => append({ name: "", price: 0, description: "", colors: [], size: [], isAvailable: false, unit: 0 })}>Append</button>
     </div>
   )
 };
