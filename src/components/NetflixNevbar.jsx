@@ -205,6 +205,15 @@ export const NetflixNevbar = () => {
                 AddProducts
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                to="/UseRef2"
+                className="nav-link"
+                style={({ isActive }) => ({ color: isActive ? '#4da6ff' : 'white' })}
+              >
+                UseRef2
+              </NavLink>
+            </li>
 
           </ul>
         </div>
