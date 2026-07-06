@@ -9,10 +9,16 @@ export const UseRef2 = () => {
         setMessage([...message,'New message'])
     }
     useEffect(() => {
-        if(divref.current){
-            divref.current.style.color = "blue"
-        }
-    },[message])
+       if (divref.current) {
+      divref.current.style.color = "blue";
+
+      const timer = setTimeout(() => {
+        divref.current.style.color = "black";
+      }, 1000); // blue for 1 second
+
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   return (
     <div style={{textAlign:"center"}}>
