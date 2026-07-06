@@ -42,6 +42,7 @@ import { UpdateUser } from './components/API/UpdateUser'
 import { AddProducts } from './components/API/AddProducts'
 import { UseRef } from './components/UseRef'
 import { UseRef2 } from './components/UseRef2'
+import { WaterFlow } from './components/WaterFlow'
 // import { Inputdemo1 } from './components/Inputdemo1'
 // import { PracticeComponents } from './components/PracticeComponents'
 
@@ -82,6 +83,7 @@ function App() {
         <Route path='/AddProducts' element = {<AddProducts/>}></Route>
         <Route path='/UseRef' element = {<UseRef/>}></Route>
         <Route path='/UseRef2' element = {<UseRef2/>}></Route>
+        <Route path='/WaterFlow' element = {<WaterFlow/>}></Route>
 
 
       </Routes>
